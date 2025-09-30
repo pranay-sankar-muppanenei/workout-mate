@@ -22,14 +22,16 @@ app.use('/api',authRoutes);
 app.use('/api',workoutRoutes);    
 
 
+const PORT = process.env.PORT || 4000; // fallback for local dev
 mongoose.connect(process.env.MONGODB_URI)
-.then(()=>{
-    app.listen(process.env.PORT,()=>{
-    console.log("Server is running on port 4000");
-});
-})
-.catch((error)=>{
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
     console.log(error);
-})
+  });
+
 
 module.exports=app;
