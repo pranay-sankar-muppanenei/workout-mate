@@ -5,6 +5,7 @@ const app=express();
 const workoutRoutes=require('./routes/workout');
 const authRoutes=require('./routes/user');
 const mongoose=require('mongoose');
+const cors = require("cors");
 
 //connect to db
 
@@ -16,6 +17,10 @@ app.use((req,res,next)=>{
     next();
 })
 app.use(express.json());    
+app.use(cors({
+  origin: "https://workout-mate-ocsd.vercel.app", // your frontend URL
+  credentials: true
+}));
 
 
 app.use('/api',authRoutes);
