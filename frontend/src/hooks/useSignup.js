@@ -11,8 +11,9 @@ import useAuthContext from './useAuthContext';
     const signup=async (email,password)=>{
         setIsLoading(true);
         setError(null);
+        const API_URL = import.meta.env.VITE_API_URL || "";
 
-        const response=await fetch('api/signup',{
+        const response=await fetch(`${API_URL}/api/signup`,{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({email,password})

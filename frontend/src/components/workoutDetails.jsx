@@ -11,11 +11,12 @@ const WorkoutDetails = ({ workout }) => {
   if (!workout) return null;
 
   const handleDelete = async () => {
+    const API_URL = import.meta.env.VITE_API_URL || "";
     if(!user){
 
       return
     }
-    const response = await fetch(`/api/${workout._id}`, {
+    const response = await fetch(`${API_URL}/api/${workout._id}`, {
       method: "DELETE",
       headers: { 'Authorization': `Bearer ${user.token}` }  
     });

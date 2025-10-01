@@ -8,16 +8,19 @@ const Home=()=>{
     const {user}=useAuthContext();
     const {workouts,dispatch}=useWorkoutContext();
     useEffect(()=>{
-        const fetchWorkouts=async()=>{
-            const response=await fetch('/api/',{
-                headers:{'Authorization':`Bearer ${user.token}` }
-            });
-            const data=await response.json();
-            if(response.ok){
-                    dispatch({type:'SET_WORKOUT',payload:data})
-            }
-         
-        }
+const fetchWorkouts = async () => {
+  const API_URL = import.meta.env.VITE_API_URL || ""; // "" lets proxy work in dev
+
+  const response = await fetch(`${API_URL}/api/`, {
+    headers: { Authorization: `Bearer ${user.token}` },
+  });
+
+  const data = await response.json();
+  if (response.ok) {
+    dispatch({ type: "SET_WORKOUT", payload: data });
+  }
+};
+
         if(user){
             fetchWorkouts();
         }
