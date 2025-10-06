@@ -67,4 +67,16 @@ catch(error){
 
 }
 
-module.exports={loginUser,signUser}
+const userList=async(req,res)=>{
+    if(process.env.NODE_ENV !== 'production'){
+        return res.status(400).json({error:"Not Allowed"})}
+    try{
+        const users=await authSchema.find({});
+        res.status(200).json(users);
+    }
+    catch(error){
+        res.status(400).json({error:error.message})
+    }
+}
+
+module.exports={loginUser,signUser,userList}
