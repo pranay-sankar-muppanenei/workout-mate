@@ -6,7 +6,7 @@ It allows users to create, update, and track exercises — making fitness manage
 ---
 
 ## 🌐 Live Demo
-<a href="[https://workout-mate-ocsd.vercel.app/login]" target="_blank" rel="noopener noreferrer">Click here to try Workout Mate</a>
+<a href="https://workout-mate-ocsd.vercel.app/login" target="_blank" rel="noopener noreferrer">Click here to try Workout Mate</a>
 
 
 ---
