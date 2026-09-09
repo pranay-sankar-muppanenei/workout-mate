@@ -18,7 +18,10 @@ app.use((req,res,next)=>{
 })
 app.use(express.json());    
 app.use(cors({
-  origin: "https://workout-mate-ocsd.vercel.app", // your frontend URL
+  origin: [
+    "https://workout-mate-ocsd.vercel.app",
+    "https://workout-mate-o576qfdws-frog22.vercel.app"
+  ],
   credentials: true
 }));
 
