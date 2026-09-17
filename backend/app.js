@@ -18,9 +18,7 @@ app.use((req,res,next)=>{
 })
 app.use(express.json());    
 app.use(cors({
-  origin: [
-    "https://workout-mate-ocsd.vercel.app"
-  ],
+  origin: true,
   credentials: true
 }));
 
